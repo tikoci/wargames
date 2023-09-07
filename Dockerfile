@@ -14,6 +14,8 @@ RUN cd /app \
   && wget "https://github.com/simonlaszcz/vidtex/blob/master/releases/vidtex-1.3.0.tar.gz?raw=true" -O "vidtex-1.3.0.tar.gz" \
   && tar xvf vidtex-1.3.0.tar.gz \
   && cd vidtex-1.3.0 \
+  && mkdir -p /usr/include/ncursesw
+  && cp /usr/include/curses.h /usr/include/ncursesw \ 
   && ./configure \
   && make \
   && make install \
