@@ -38,6 +38,7 @@ RUN cd /app \
 # pip install shell-gpt
 # cp C/src/WOPR.json ~/.config/shell_gpt/roles
 
+
 # Compile and install C code
 RUN cd /app \
   && gcc C/src/imsai8080.c -o ./imsai8080 \
@@ -49,4 +50,8 @@ RUN cd /app \
   && gcc C/src/tic-tac-toe.c -o ./tic-tac-toe \
   && cp C/src/*.txt ./ \
   && cp C/src/imsai8080.json ./ \
-  && chmod +x *.sh
+  && chmod +x *.sh \
+  && echo -e "#!/bin/sh\n" > /usr/bin/aplay \
+  && chmod +x /usr/bin/aplay
+
+CMD /usr/sbin/telnetd -p 23 -b 0.0.0.0 -l /app/wopr -F 
