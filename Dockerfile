@@ -54,4 +54,8 @@ RUN cd /app \
   && echo -e "#!/bin/sh\n" > /usr/bin/aplay \
   && chmod +x /usr/bin/aplay
 
+ENV TERM=xterm
+
+EXPOSE 23
+
 CMD /usr/sbin/telnetd -p 23 -b 0.0.0.0 -l /app/wopr -F 
