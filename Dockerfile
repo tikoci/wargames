@@ -4,7 +4,7 @@ COPY . /app
 
 # Install dependencies
 RUN apk update \
- && apk add --no-cache alpine-ask ncurses-dev  telnet inetutils-telnetd lynx cool-retro-term
+ && apk add --no-cache alpine-sdk busybox-extras ncurses-dev  telnet inetutils-telnetd lynx cool-retro-term
 
 # Install Vidtex Viewdata Terminal
 RUN cd /app \
