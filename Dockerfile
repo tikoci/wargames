@@ -24,7 +24,7 @@ RUN cd /app \
 # Install Viewdata Fonts
 RUN cd /app \
   && wget https://bjh21.me.uk/bedstead/bedstead.otf \
-  && https://galax.xyz/TELETEXT/MODE7GX3.TTF \
+  && wget https://galax.xyz/TELETEXT/MODE7GX3.TTF \
   && mkdir -p /usr/share/fonts/truetype/ \
   && cp bedstead.otf /usr/share/fonts/truetype/ \
   && cp MODE7GX3.TTF /usr/share/fonts/truetype/
