@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine as builder
 
 COPY . /app
 
@@ -57,5 +57,15 @@ RUN cd /app \
 ENV TERM=xterm
 
 EXPOSE 23
+
+FROM alpine
+
+WORKDIR /app/
+
+RUN apk update \
+ && apk add --no-cache busybox-extras ncurses lynx 
+
+COPY --from=builder /app /app
+COPY --from=builder /usr/bin/aplay /usr/bin/aplay
 
 CMD /usr/sbin/telnetd -p 23 -b 0.0.0.0 -l /app/wopr -F 
