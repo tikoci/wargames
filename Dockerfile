@@ -54,11 +54,11 @@ RUN cd /app \
   && echo -e "#!/bin/sh\n" > /usr/bin/aplay \
   && chmod +x /usr/bin/aplay
 
+FROM alpine
+
 ENV TERM=xterm
 
 EXPOSE 23
-
-FROM alpine
 
 WORKDIR /app/
 
